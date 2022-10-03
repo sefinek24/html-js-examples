@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #FFF;
+            font-family: Calibri, sans-serif;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #data {
+            color: #00FF00;
+        }
+
+        #red {
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <div><label for="input1">Input number 1</label></div>
+    <div><input type="text" id="input1" value="0"></div>
+    <br>
+
+    <div><label for="input2">Input number 2</label></div>
+    <div><input type="text" id="input2" value="0"></div>
+    <br>
+
+    <div><label for="input3">Input number 3</label></div>
+    <div><input type="text" id="input3" value="0"></div>
+    <br>
+
+    <div><label for="input4">Input number 4</label></div>
+    <div><input type="text" id="input4" value="0"></div>
+    <br>
+
+    <div><label for="total">Total</label></div>
+    <div><input type="text" id="total" value="0" disabled></div>
+    <br>
+
+    <div id="data"></div>
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+        const input3 = document.getElementById('input3');
+        const input4 = document.getElementById('input4');
+        const total = document.getElementById('total');
+        const data = document.getElementById('data');
+        const check = int => isNaN(int) ? `<span id="red">${int}</span>` : int;
+
+        [input1, input2, input3, input4].forEach(input => {
+            input.addEventListener('change', () => {
+                const final = parseInt(input1.value || '0') + parseInt(input2.value || '0') + parseInt(input3.value || '0') + parseInt(input4.value || '0');
+                total.value = isNaN(final) ? 'Not a number' : final;
+
+                data.innerHTML = `${check(input1.value)} + ${check(input2.value)} + ${check(input3.value)} + ${check(input4.value)} = ${total.value}`;
+            });
+        });
+    </script>
+</body>
+</html>

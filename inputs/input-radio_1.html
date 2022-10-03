@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #FFF;
+            font-family: Calibri, sans-serif;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        input, label {
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        #show1, #show2 {
+            display: none;
+            padding-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <b>Choose:</b>
+    <label for="yes"><input type="radio" name="choose" id="yes"> Yes</label>
+    <label for="no"><input type="radio" name="choose" id="no"> No</label>
+
+    <img id="show1" src="assets/input-radio_1/yes.webp" alt="Yes">
+    <img id="show2" src="assets/input-radio_1/no.webp" alt="No">
+
+    <script>
+        const show1 = document.getElementById('show1').style;
+        const show2 = document.getElementById('show2').style;
+
+        document.getElementById('yes').addEventListener('click', () => {
+            show1.display = 'block';
+            show2.display = 'none';
+        });
+
+        document.getElementById('no').addEventListener('click', () => {
+            show1.display = 'none';
+            show2.display = 'block';
+        });
+    </script>
+</body>
+</html>

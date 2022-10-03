@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #FFF;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+    <input type="text" id="input4">
+    <input type="text" id="input5">
+    <input type="text" id="input6">
+
+    <p>
+        <select id="select">
+            <option>-</option>
+        </select>
+    </p>
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+        const input3 = document.getElementById('input3');
+        const input4 = document.getElementById('input4');
+        const input5 = document.getElementById('input5');
+        const input6 = document.getElementById('input6');
+
+        const select = document.getElementById('select');
+
+        [input1, input2, input3, input4, input5, input6].forEach(input => {
+            input.addEventListener('change', () => {
+                const option = document.createElement('option');
+                option.text = input.value;
+
+                select.add(option)
+            });
+        });
+    </script>
+</body>
+</html>
